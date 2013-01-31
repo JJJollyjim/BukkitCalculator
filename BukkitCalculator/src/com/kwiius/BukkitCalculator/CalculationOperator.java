@@ -8,7 +8,6 @@ public class CalculationOperator {
 	public CalculationOperator(OperatorType t) {
 		setInstanceVars(t);
 	}
-	//test
 	
 	public CalculationOperator(char c) {
 		switch (c) {
