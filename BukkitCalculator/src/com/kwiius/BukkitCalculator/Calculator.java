@@ -6,7 +6,7 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class Calculator {
-	public static String Calculate(String calculation) throws NumberFormatException, Exception {
+	public static String calculate(String calculation) throws NumberFormatException, Exception {
 		List<CalculationObject> rpn = shuntingYardAlgorithm(getTokenArray(calculation));
 		String[] strings = new String[rpn.size()];
 		for (int i = 0; i < rpn.size(); ++i) {
@@ -15,12 +15,12 @@ public class Calculator {
 		return Utils.implode(strings, " ");
 	}
 	
-	public static CalculationObject[] getTokenArray(String calculation)
+	private static CalculationObject[] getTokenArray(String calculation)
 		throws NumberFormatException {
 		Scanner s = new Scanner(calculation);
 		String token;
 		List<String> tokens = new ArrayList<String>();
-		while (null != (token = s.findInLine("\\d+|[+-/%^*()]")))
+		while (null != (token = s.findInLine("-?\\d+|[+-/%^*()]")))
 		    tokens.add(token);
 		s.close();
 		CalculationObject[] result = new CalculationObject[tokens.size()];
