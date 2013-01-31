@@ -8,3 +8,7 @@ commands:
         aliases: [calc, calculate]
         description: Calculate a mathematical equation
         usage: /calc 5+5 (* = multiply, / = divide, % = modulo, ^ = power)
+    s:
+        aliases: [stack, cstack, calcstack, calculatestack]
+        description: Calculate multiple stacks of items, plus extras
+        usage: /stack [#ofstacks] [#extraitems]
