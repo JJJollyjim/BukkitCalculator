@@ -8,6 +8,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class BukkitCalculator extends JavaPlugin {
 	public static Logger log;
+
+	//Test
+	//Test2
+	//Test3
 	
 	@Override
 	public void onEnable() {
