@@ -22,4 +22,22 @@ public class Utils {
 			out.append(s[x]);
 		return out.toString();
 	}
+
+	public static Integer parseInt(String data) {
+		Integer val = null;
+		try {
+			val = Integer.parseInt(data);
+		} catch (NumberFormatException nfe) {
+		}
+		return val;
+	}
+
+	public static Integer parseInt(String data, int defaultInt) {
+		Integer val = defaultInt;
+		try {
+			val = Integer.parseInt(data);
+		} catch (NumberFormatException nfe) {
+		}
+		return val;
+	}
 }
