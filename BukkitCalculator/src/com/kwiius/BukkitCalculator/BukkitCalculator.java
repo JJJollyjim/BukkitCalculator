@@ -15,13 +15,10 @@ public class BukkitCalculator extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		log = getLogger();
-		log.info("onEnable Called");
 	}
 
 	@Override
-	public void onDisable() {
-		log.info("onDisable Called");
-	}
+	public void onDisable() { }
 
 	public boolean onCommand(CommandSender sender, Command cmd, String label,
 			String[] args) {
@@ -45,7 +42,7 @@ public class BukkitCalculator extends JavaPlugin {
 					return false;
 				}
 
-				joined.replaceAll("\\*\\*", "^");
+				joined = joined.replace("**", "^");
 
 				try {
 					String output = Calculator.calculate(joined);
@@ -63,6 +60,11 @@ public class BukkitCalculator extends JavaPlugin {
 				}
 			} else {
 				return false;
+			}
+		} else if(cmd.getName().equals("s")) {
+			String calc;
+			if(args.length == 1) {
+				calc = args[0];
 			}
 		} else {
 			return false;
