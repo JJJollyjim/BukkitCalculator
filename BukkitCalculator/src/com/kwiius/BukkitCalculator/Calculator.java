@@ -85,12 +85,16 @@ public class Calculator {
 					if (stack.isEmpty()) {
 						throw new Exception("Mismatched parentheses!");
 					}
-					while (stack.peek().parenthesis == null || stack.peek().parenthesis.leftParenthesis == false) {
+					while (!stack.isEmpty() && 
+							(stack.peek().parenthesis == null || stack.peek().parenthesis.leftParenthesis == false)) {
 						output.add(stack.pop());
 					}
 					// pop left parenthesis
-					stack.pop();
-					// TODO: When there is no left parenthesis, there are mismatched parentheses! Add error handling.
+					if (stack.isEmpty()) {
+						throw new Exception("Mismatched parentheses!");
+					} else {
+						stack.pop();
+					}
 				}
 			}
 		}
