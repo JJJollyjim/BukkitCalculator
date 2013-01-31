@@ -37,13 +37,13 @@ public class BukkitCalculator extends JavaPlugin {
 				}
 
 				Pattern p2 = Pattern.compile("[.]");
-				Matcher m2 = p.matcher(joined);
+				Matcher m2 = p2.matcher(joined);
 				if (m2.find()) {
 					sender.sendMessage(ChatColor.RED
 							+ "Error: Non-decimal numbers only!");
 				}
 
-				joined.replace("**", "^");
+				joined.replaceAll("\\*\\*", "^");
 
 				try {
 					String output = Calculator.calculate(joined);
