@@ -26,24 +26,6 @@ public class BukkitCalculator extends JavaPlugin {
 			if (args.length != 0) {
 				String joined = Utils.implode(args);
 
-				Pattern p = Pattern.compile("[a-zA-Z]");
-				Matcher m = p.matcher(joined);
-				if (m.find()) {
-					sender.sendMessage(ChatColor.RED
-							+ "Error: No letters allowed!");
-					return false;
-				}
-
-				Pattern p2 = Pattern.compile("[.]");
-				Matcher m2 = p2.matcher(joined);
-				if (m2.find()) {
-					sender.sendMessage(ChatColor.RED
-							+ "Error: Non-decimal numbers only!");
-					return false;
-				}
-
-				joined = joined.replace("**", "^");
-
 				try {
 					String output = Calculator.calculate(joined);
 					if (output == null) {

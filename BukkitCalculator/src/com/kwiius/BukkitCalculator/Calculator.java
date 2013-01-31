@@ -4,9 +4,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Stack;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import org.bukkit.ChatColor;
 
 public class Calculator {
 	public static String calculate(String calculation) throws NumberFormatException, Exception {
+		Pattern p = Pattern.compile("[a-zA-Z]");
+		Matcher m = p.matcher(calculation);
+		if (m.find()) {
+			throw new Exception("You entered letters!");
+		}
+
+		Pattern p2 = Pattern.compile("[.]");
+		Matcher m2 = p2.matcher(calculation);
+		if (m2.find()) {
+			throw new Exception("No decimal numbers!");
+		}
+		
+		calculation = calculation.replace("**", "^");
+		
 		List<CalculationObject> rpn = shuntingYardAlgorithm(getTokenArray(calculation));
 		String[] strings = new String[rpn.size()];
 		for (int i = 0; i < rpn.size(); ++i) {
