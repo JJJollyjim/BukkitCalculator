@@ -34,6 +34,7 @@ public class BukkitCalculator extends JavaPlugin {
 				if (m.find()) {
 					sender.sendMessage(ChatColor.RED
 							+ "Error: No letters allowed!");
+					return false;
 				}
 
 				Pattern p2 = Pattern.compile("[.]");
@@ -41,6 +42,7 @@ public class BukkitCalculator extends JavaPlugin {
 				if (m2.find()) {
 					sender.sendMessage(ChatColor.RED
 							+ "Error: Non-decimal numbers only!");
+					return false;
 				}
 
 				joined.replaceAll("\\*\\*", "^");
