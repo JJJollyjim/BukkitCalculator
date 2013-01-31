@@ -10,6 +10,7 @@ public class BukkitCalculator extends JavaPlugin {
 	public static Logger log;
 
 	//Test
+	//Test2
 	
 	@Override
 	public void onEnable() {
