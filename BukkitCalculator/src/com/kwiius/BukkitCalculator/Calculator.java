@@ -15,6 +15,13 @@ public class Calculator {
 		return Utils.implode(strings, " ");
 	}
 	
+	private int calculateFromRPN(List<CalculationObject> rpn) {
+		for (int i = 0; i < rpn.size(); ++i) {
+			
+		}
+		return 0;
+	}
+	
 	private static CalculationObject[] getTokenArray(String calculation)
 		throws NumberFormatException {
 		Scanner s = new Scanner(calculation);
