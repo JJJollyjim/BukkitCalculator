@@ -9,6 +9,8 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class BukkitCalculator extends JavaPlugin {
 	public static Logger log;
 
+	//Test
+	
 	@Override
 	public void onEnable() {
 		log = getLogger();
