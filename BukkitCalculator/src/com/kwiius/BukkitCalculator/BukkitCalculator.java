@@ -28,24 +28,29 @@ public class BukkitCalculator extends JavaPlugin {
 		if (cmd.getName().equals("c")) {
 			if (args.length != 0) {
 				String joined = Utils.implode(args);
-				
+
 				Pattern p = Pattern.compile("[a-zA-Z]");
 				Matcher m = p.matcher(joined);
 				if (m.find()) {
-					sender.sendMessage(ChatColor.RED + "Error: No letters allowed!");
+					sender.sendMessage(ChatColor.RED
+							+ "Error: No letters allowed!");
 				}
-				
+
 				Pattern p2 = Pattern.compile("[.]");
 				Matcher m2 = p.matcher(joined);
 				if (m2.find()) {
-					sender.sendMessage(ChatColor.RED + "Error: Non-decimal numbers only!");
+					sender.sendMessage(ChatColor.RED
+							+ "Error: Non-decimal numbers only!");
 				}
-				
+
 				joined.replace("**", "^");
 
 				try {
-					if(Calculator.Calculate(joined) == null) {
+					String output = Calculator.Calculate(joined);
+					if (output == null) {
 						return false;
+					} else {
+						sender.sendMessage(ChatColor.YELLOW + output);
 					}
 				} catch (NumberFormatException e) {
 					sender.sendMessage(ChatColor.RED + "Error: "
@@ -57,9 +62,9 @@ public class BukkitCalculator extends JavaPlugin {
 			} else {
 				return false;
 			}
-			return true;
 		} else {
 			return false;
 		}
+		return true;
 	}
 }
