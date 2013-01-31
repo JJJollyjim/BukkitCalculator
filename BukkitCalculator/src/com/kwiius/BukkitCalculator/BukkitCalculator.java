@@ -25,7 +25,13 @@ public class BukkitCalculator extends JavaPlugin {
 		if (cmd.getName().equals("c")) {
 			if (args.length != 0) {
 				String joined = Utils.implode(args);
-				Calculator.Calculate(joined);
+				try {
+					log.info(Calculator.Calculate(joined));
+				} catch (NumberFormatException e) {
+					e.printStackTrace();
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 			} else {
 				return false;
 			}
