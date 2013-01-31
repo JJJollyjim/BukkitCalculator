@@ -46,7 +46,7 @@ public class BukkitCalculator extends JavaPlugin {
 				joined.replace("**", "^");
 
 				try {
-					String output = Calculator.Calculate(joined);
+					String output = Calculator.calculate(joined);
 					if (output == null) {
 						return false;
 					} else {
