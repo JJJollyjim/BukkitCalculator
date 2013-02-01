@@ -7,7 +7,6 @@ import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.kwiius.BukkitCalculator.BukkitCalculator;
 import com.kwiius.BukkitCalculator.Utils;
 
 public class Calculator {
@@ -33,7 +32,7 @@ public class Calculator {
 		for (int i = 0; i < rpn.size(); ++i) {
 			strings[i] = rpn.get(i).toString();
 		}
-		BukkitCalculator.log.info(Utils.implode(strings, " "));
+		//Utils.log.info(Utils.implode(strings, " "));
 		int result = calculateFromRPN(rpn);
 		return String.valueOf(result);
 	}
