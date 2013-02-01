@@ -38,7 +38,7 @@ public class Calculator {
 		return String.valueOf(result);
 	}
 
-	private static int calculateFromRPN(List<CalculationObject> rpn) {
+	private static int calculateFromRPN(List<CalculationObject> rpn) throws Exception {
 		Stack<CalculationNumber> stack = new Stack<CalculationNumber>();
 		for (int i = 0; i < rpn.size(); ++i) {
 			CalculationObject token = rpn.get(i);
@@ -48,37 +48,61 @@ public class Calculator {
 				int a, b, result;
 				switch (token.calculationOperator.operator) {
 				case '+':
+					if (stack.isEmpty())
+						throw new Exception("Invalid calculation, too many operators!");
 					a = stack.pop().number;
+					if (stack.isEmpty())
+						throw new Exception("Invalid calculation, too many operators!");
 					b = stack.pop().number;
 					result = b + a;
 					stack.push(new CalculationNumber(result));
 					break;
 				case '-':
+					if (stack.isEmpty())
+						throw new Exception("Invalid calculation, too many operators!");
 					a = stack.pop().number;
+					if (stack.isEmpty())
+						throw new Exception("Invalid calculation, too many operators!");
 					b = stack.pop().number;
 					result = b - a;
 					stack.push(new CalculationNumber(result));
 					break;
 				case '*':
+					if (stack.isEmpty())
+						throw new Exception("Invalid calculation, too many operators!");
 					a = stack.pop().number;
+					if (stack.isEmpty())
+						throw new Exception("Invalid calculation, too many operators!");
 					b = stack.pop().number;
 					result = b * a;
 					stack.push(new CalculationNumber(result));
 					break;
 				case '/':
+					if (stack.isEmpty())
+						throw new Exception("Invalid calculation, too many operators!");
 					a = stack.pop().number;
+					if (stack.isEmpty())
+						throw new Exception("Invalid calculation, too many operators!");
 					b = stack.pop().number;
 					result = b / a;
 					stack.push(new CalculationNumber(result));
 					break;
 				case '%':
+					if (stack.isEmpty())
+						throw new Exception("Invalid calculation, too many operators!");
 					a = stack.pop().number;
+					if (stack.isEmpty())
+						throw new Exception("Invalid calculation, too many operators!");
 					b = stack.pop().number;
 					result = b % a;
 					stack.push(new CalculationNumber(result));
 					break;
 				case '^':
+					if (stack.isEmpty())
+						throw new Exception("Invalid calculation, too many operators!");
 					a = stack.pop().number;
+					if (stack.isEmpty())
+						throw new Exception("Invalid calculation, too many operators!");
 					b = stack.pop().number;
 					result = (int)Math.pow(b, a);
 					stack.push(new CalculationNumber(result));
@@ -86,6 +110,10 @@ public class Calculator {
 				}
 			}
 		}
+		if (stack.isEmpty())
+			throw new Exception("Invalid calculation, too many operators!");
+		if (stack.size() > 1)
+			throw new Exception("Invalid calculation!");
 		return stack.pop().number;
 	}
 
