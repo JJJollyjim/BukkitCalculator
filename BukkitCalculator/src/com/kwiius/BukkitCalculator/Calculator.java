@@ -34,8 +34,8 @@ public class Calculator {
 	}
 	
 	private int calculateFromRPN(List<CalculationObject> rpn) {
+		Stack<CalculationNumber> stack = new Stack<CalculationNumber>();
 		for (int i = 0; i < rpn.size(); ++i) {
-			
 		}
 		return 0;
 	}
