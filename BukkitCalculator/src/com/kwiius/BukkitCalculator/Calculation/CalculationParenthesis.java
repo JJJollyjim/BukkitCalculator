@@ -1,4 +1,4 @@
-package com.kwiius.BukkitCalculator;
+package com.kwiius.BukkitCalculator.Calculation;
 
 public class CalculationParenthesis {
 	public boolean leftParenthesis;

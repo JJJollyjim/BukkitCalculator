@@ -7,6 +7,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import com.kwiius.BukkitCalculator.Calculation.Calculator;
+
 public class BukkitCalculator extends JavaPlugin {
 	public static Logger log;
 

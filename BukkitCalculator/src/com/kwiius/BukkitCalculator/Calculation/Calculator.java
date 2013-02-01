@@ -1,4 +1,4 @@
-package com.kwiius.BukkitCalculator;
+package com.kwiius.BukkitCalculator.Calculation;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,6 +6,9 @@ import java.util.Scanner;
 import java.util.Stack;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
+import com.kwiius.BukkitCalculator.BukkitCalculator;
+import com.kwiius.BukkitCalculator.Utils;
 
 public class Calculator {
 	public static String calculate(String calculation)
