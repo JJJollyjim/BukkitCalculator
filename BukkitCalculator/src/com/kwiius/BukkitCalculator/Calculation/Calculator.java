@@ -26,6 +26,7 @@ public class Calculator {
 		}
 
 		calculation = calculation.replace("**", "^");
+		calculation = calculation.replaceAll("(?<=((?<![0-9)])-)?\\d+)\\(", "*(");
 
 		List<CalculationObject> rpn = shuntingYardAlgorithm(getTokenArray(calculation));
 		String[] strings = new String[rpn.size()];
