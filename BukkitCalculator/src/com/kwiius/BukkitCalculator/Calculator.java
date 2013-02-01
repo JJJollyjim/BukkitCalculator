@@ -76,7 +76,7 @@ public class Calculator {
 				case '^':
 					a = stack.pop().number;
 					b = stack.pop().number;
-					result = b ^ a;
+					result = (int)Math.pow(b, a);
 					stack.push(new CalculationNumber(result));
 					break;
 				}
