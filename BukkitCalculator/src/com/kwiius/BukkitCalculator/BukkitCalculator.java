@@ -1,8 +1,6 @@
 package com.kwiius.BukkitCalculator;
 
 import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -25,30 +23,47 @@ public class BukkitCalculator extends JavaPlugin {
 		if (cmd.getName().equals("c")) {
 			if (args.length != 0) {
 				String joined = Utils.implode(args);
-
-				try {
-					String output = Calculator.calculate(joined);
-					if (output == null) {
-						return false;
-					} else {
-						sender.sendMessage(ChatColor.YELLOW + output);
-					}
-				} catch (NumberFormatException e) {
-					sender.sendMessage(ChatColor.RED + "Error: "
-							+ e.getMessage());
-				} catch (Exception e) {
-					sender.sendMessage(ChatColor.RED + "Error: "
-							+ e.getMessage());
-				}
+				
+				//Calculate!
+				return tryCalc(joined, sender);
 			} else {
 				return false;
 			}
 		} else if(cmd.getName().equals("s")) {
 			String calc;
 			if(args.length == 1) {
-				calc = args[0];
+				calc = args[0]+"*64";
+				tryCalc(calc, sender);
+			} else if(args.length == 2) {
+				calc = args[0]+"*64+"+args[1];
+				tryCalc(calc, sender);
+			} else if(args.length == 3) {
+				calc = args[0]+"*"+args[1]+"+"+args[2];
+				tryCalc(calc, sender);
+			} else {
+				return false;
 			}
+			return true;
 		} else {
+			return false;
+		}
+	}
+	
+	boolean tryCalc(String input, CommandSender sender) {
+		try {
+			String output = Calculator.calculate(input);
+			if (output == null) {
+				return false;
+			} else {
+				sender.sendMessage(ChatColor.YELLOW + output);
+			}
+		} catch (NumberFormatException e) {
+			sender.sendMessage(ChatColor.RED + "Error: "
+					+ e.getMessage());
+			return false;
+		} catch (Exception e) {
+			sender.sendMessage(ChatColor.RED + "Error: "
+					+ e.getMessage());
 			return false;
 		}
 		return true;
