@@ -32,7 +32,7 @@ public class Calculator {
 		for (int i = 0; i < rpn.size(); ++i) {
 			strings[i] = rpn.get(i).toString();
 		}
-		//Utils.log.info(Utils.implode(strings, " "));
+		
 		int result = calculateFromRPN(rpn);
 		return String.valueOf(result);
 	}
